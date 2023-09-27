@@ -1,0 +1,31 @@
+import React from "react";
+import AirQuality from "./WeatherHighlights/AirQuality";
+import Visibility from "./WeatherHighlights/Visibility";
+import Wind from "./WeatherHighlights/Wind";
+import UVindex from "./WeatherHighlights/UVindex";
+import SunTime from "./WeatherHighlights/SunTime";
+import Humidity from "./WeatherHighlights/Humidity";
+import styled from "styled-components";
+import "../weathericons/css/weather-icons.css";
+
+const HLMain = styled.div`
+  background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+`;
+
+function WeatherHighlights({ clima }) {
+  return (
+    <HLMain>
+      <AirQuality clima={clima} />
+      <Visibility clima={clima} />
+      <Wind clima={clima} />
+      <UVindex clima={clima} />
+      <SunTime clima={clima} />
+      <Humidity clima={clima} />
+    </HLMain>
+  );
+}
+
+export default WeatherHighlights;
