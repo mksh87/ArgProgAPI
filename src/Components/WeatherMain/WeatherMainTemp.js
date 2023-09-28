@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import clockback from "../../img/tempclock-01.svg";
 import clockarrow from "../../img/tempclock-02.svg";
+import { H2T } from "../../styledcomponents/WeatherStyle";
 
 const Temp = styled.div`
   display: grid;
@@ -43,7 +44,7 @@ function WeatherMainTemp({ clima }) {
       <Tempclock $rotationangle={rotationangle}>
         <img src={clockarrow} alt="Clock Arrow"></img>
       </Tempclock>
-      <p>{clima.temperatura}°C</p>
+      <H2T>{clima.temperatura}°C</H2T>
     </Temp>
   );
 }

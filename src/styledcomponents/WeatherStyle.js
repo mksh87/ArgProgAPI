@@ -13,6 +13,12 @@ export const H2 = styled.div`
   font-size: 35px;
 `;
 
+export const H2T = styled(H2)`
+  padding: 0px;
+  margin: -25%;
+  font-size: 3vw;
+`;
+
 export const P1 = styled.p`
   padding: 5px;
   margin: 0px;

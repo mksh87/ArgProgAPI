@@ -11,7 +11,9 @@ const Quality = styled.div`
 function AirQuality({ clima }) {
   return (
     <Quality>
-      <P1>Air Quality:</P1>
+      <P1>
+        <i className="wi wi-cloud-refresh"></i> Air Quality:
+      </P1>
       <H2>{clima.airquality}</H2>
       <P1>Jodido</P1>
     </Quality>

@@ -11,7 +11,9 @@ const WindStyle = styled.div`
 function Wind({ clima }) {
   return (
     <WindStyle>
-      <P1>Viento: </P1>
+      <P1>
+        <i className="wi wi-strong-wind"></i> Viento:{" "}
+      </P1>
       <H2>{clima.windspeed} km/h</H2>
       <P1>ayayayay</P1>
     </WindStyle>

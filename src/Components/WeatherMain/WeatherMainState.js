@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { H2 } from "../../styledcomponents/WeatherStyle";
 
 const State = styled.div`
   display: grid;
@@ -53,11 +52,11 @@ function WeatherMainState({ clima }) {
         <i className={obtenerIcono(clima.estado)} alt="Icono del clima"></i>
       </StateIcon>
       <StateDescription>{clima.estado}</StateDescription>
-      <H2>
+      <div>
         {fechaActual.toLocaleString("es-AR", {
           timeZone: "America/Argentina/Buenos_Aires",
         })}
-      </H2>
+      </div>
     </State>
   );
 }

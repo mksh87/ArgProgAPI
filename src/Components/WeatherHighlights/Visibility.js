@@ -11,7 +11,9 @@ const VisibilityStyle = styled.div`
 function Visibility({ clima }) {
   return (
     <VisibilityStyle>
-      <P1>Visibilidad:</P1>
+      <P1>
+        <i className="wi wi-horizon-alt"></i>Visibilidad:
+      </P1>
       <H2>{clima.visibility} km</H2>
       <P1>No se ve un carajo</P1>
     </VisibilityStyle>

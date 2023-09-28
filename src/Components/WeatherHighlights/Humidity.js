@@ -11,7 +11,9 @@ const HumidityStyle = styled.div`
 function Humidity({ clima }) {
   return (
     <HumidityStyle>
-      <P1>Humedad: </P1>
+      <P1>
+        <i className="wi wi-humidity"></i> Humedad:{" "}
+      </P1>
       <H2>{clima.humidity}%</H2>
       <P1>Mi Pelo es un desastre</P1>
     </HumidityStyle>

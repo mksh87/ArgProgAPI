@@ -6,9 +6,15 @@ import WeatherMainMaxmin from "./WeatherMain/WeatherMainMaxmin";
 import styled from "styled-components";
 
 const Main = styled.div`
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
+
+  & > div {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
 `;
 
 function WeatherMain({ clima }) {

@@ -9,10 +9,16 @@ import styled from "styled-components";
 import "../weathericons/css/weather-icons.css";
 
 const HLMain = styled.div`
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   margin: 0;
+
+  & > div {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
 `;
 
 function WeatherHighlights({ clima }) {

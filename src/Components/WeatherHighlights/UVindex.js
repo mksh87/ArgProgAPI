@@ -11,7 +11,9 @@ const UVStyle = styled.div`
 function UVindex({ clima }) {
   return (
     <UVStyle>
-      <P1>Índice UV:</P1>
+      <P1>
+        <i className="wi wi-hot"></i>Índice UV:
+      </P1>
       <H2>{clima.uvindex}</H2>
       <P1>Me quemo</P1>
     </UVStyle>
