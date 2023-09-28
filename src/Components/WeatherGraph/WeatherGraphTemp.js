@@ -28,10 +28,12 @@ function WeatherGraphTemp({ clima }) {
           {
             label: "Temperatura",
             data: temperaturaData,
-            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            backgroundColor: "rgba(75, 192, 192, 0.8)",
             borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
+            borderWidth: 2,
+            tension: 0.3,
             yAxisID: "temperatura-y-axis",
+            display: false,
           },
         ],
       },
@@ -43,6 +45,22 @@ function WeatherGraphTemp({ clima }) {
           "temperatura-y-axis": {
             type: "linear",
             position: "left",
+            title: {
+              display: true,
+              text: "Temperatura (°C)", // Título del eje Y
+            },
+            ticks: {
+              callback: (value) => `${value}°C`, // Agrega "°C" al valor
+            },
+          },
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: "Gráfico de Temperatura", // Título del gráfico
+          },
+          legend: {
+            display: false, // Oculta el legend (label) del gráfico
           },
         },
       },

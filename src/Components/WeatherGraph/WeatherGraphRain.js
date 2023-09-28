@@ -28,9 +28,9 @@ function WeatherGraphRain({ clima }) {
           {
             label: "Precipitaciones",
             data: precipitacionesData,
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            backgroundColor: "rgba(255, 99, 132, 0.8)",
             borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
+            borderWidth: 0,
             yAxisID: "precipitaciones-y-axis",
           },
         ],
@@ -41,8 +41,21 @@ function WeatherGraphRain({ clima }) {
             beginAtZero: true,
           },
           "precipitaciones-y-axis": {
+            title: {
+              display: true,
+              text: "(%)", // Título del eje Y
+            },
             type: "linear",
-            position: "right",
+            position: "left",
+          },
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: "Probabilidad de Precipitaciones", // Título del gráfico
+          },
+          legend: {
+            display: false, // Oculta el legend (label) del gráfico
           },
         },
       },
