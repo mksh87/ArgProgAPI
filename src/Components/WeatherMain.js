@@ -17,12 +17,15 @@ const Main = styled.div`
   }
 `;
 
-function WeatherMain({ clima }) {
+function WeatherMain({ clima, current, daily, dailyunits }) {
   return (
     <Main>
-      <WeatherMainTemp clima={clima} />
-      <WeatherMainMaxmin clima={clima} />
-      <WeatherMainState clima={clima} />
+      <WeatherMainTemp temp={current.temperature} />
+      <WeatherMainMaxmin
+        max={daily.temperature_2m_max}
+        min={daily.temperature_2m_min}
+      />
+      <WeatherMainState weathercode={current.weathercode} />
     </Main>
   );
 }

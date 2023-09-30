@@ -25,16 +25,16 @@ const Tempclock = styled.div`
   }
 `;
 
-function WeatherMainTemp({ clima }) {
+function WeatherMainTemp({ temp }) {
   let rotationangle;
 
-  if (typeof clima.temperatura === "number") {
-    if (clima.temperatura < -20) {
+  if (typeof temp === "number") {
+    if (temp < -20) {
       rotationangle = -12;
-    } else if (clima.temperatura > 48) {
+    } else if (temp > 48) {
       rotationangle = 280;
     } else {
-      rotationangle = clima.temperatura * 5 + 42;
+      rotationangle = temp * 5 + 42;
     }
   } else {
     rotationangle = 315; // Valor por defecto en caso de error
@@ -44,7 +44,7 @@ function WeatherMainTemp({ clima }) {
       <Tempclock $rotationangle={rotationangle}>
         <img src={clockarrow} alt="Clock Arrow"></img>
       </Tempclock>
-      <H2T>{clima.temperatura}°C</H2T>
+      <H2T>{temp}°C</H2T>
     </Temp>
   );
 }

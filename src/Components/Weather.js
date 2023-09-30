@@ -2,8 +2,11 @@ import React from "react";
 import WeatherMain from "./WeatherMain";
 import WeatherGraph from "./WeatherGraph";
 import WeatherHighlights from "./WeatherHighlights";
+import weatherdata from "../weatherdata.json";
 
 function Weather() {
+  console.log(weatherdata.latitude);
+
   const climaAhora = {
     temperatura: 40,
     estado: "soleado",
@@ -48,7 +51,12 @@ function Weather() {
 
   return (
     <div>
-      <WeatherMain clima={climaAhora} />
+      <WeatherMain
+        clima={climaAhora}
+        current={weatherdata.current_weather}
+        daily={weatherdata.daily}
+        dailyunits={weatherdata.daily_units}
+      />
       <WeatherGraph clima={climaHoy} />
       <WeatherHighlights clima={climaAhora} />
     </div>

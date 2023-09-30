@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import weatherDataIcons from "../../weatherstateicons.json";
 
 const State = styled.div`
   display: grid;
@@ -19,7 +20,7 @@ const StateDescription = styled(State)`
   font-size: 40px;
 `;
 
-function WeatherMainState({ clima }) {
+function WeatherMainState({ weathercode }) {
   // Estados para la fecha y hora actual
   const [fechaActual, setFechaActual] = useState(new Date());
 
@@ -31,27 +32,15 @@ function WeatherMainState({ clima }) {
     return () => clearInterval(interval);
   }, []);
 
-  // Función para obtener el ícono según el estado del clima
-  const obtenerIcono = (estado) => {
-    // Lógica para asignar el ícono según el estado (puedes personalizar esto)
-    switch (estado) {
-      case "nublado":
-        return "wi wi-cloudy";
-      case "soleado":
-        return "wi wi-day-sunny";
-      case "tormenta":
-        return "wi wi-storm-showers";
-      default:
-        return "wi-moon-new";
-    }
-  };
-
   return (
     <State>
       <StateIcon>
-        <i className={obtenerIcono(clima.estado)} alt="Icono del clima"></i>
+        <i
+          className={weatherDataIcons[weathercode].icon}
+          alt={weatherDataIcons[weathercode].name}
+        ></i>
       </StateIcon>
-      <StateDescription>{clima.estado}</StateDescription>
+      <StateDescription>{weatherDataIcons[weathercode].name}</StateDescription>
       <div>
         {fechaActual.toLocaleString("es-AR", {
           timeZone: "America/Argentina/Buenos_Aires",
