@@ -17,15 +17,28 @@ const Main = styled.div`
   }
 `;
 
-function WeatherMain({ clima, current, daily, dailyunits }) {
+function WeatherMain({
+  current,
+  currentunits,
+  daily,
+  dailyunits,
+  fechaActual,
+}) {
   return (
     <Main>
-      <WeatherMainTemp temp={current.temperature} />
-      <WeatherMainMaxmin
-        max={daily.temperature_2m_max}
-        min={daily.temperature_2m_min}
+      <WeatherMainTemp
+        temp={current.temperature}
+        tempunits={currentunits.temperature}
       />
-      <WeatherMainState weathercode={current.weathercode} />
+      <WeatherMainMaxmin
+        max={daily.temperature_2m_max[0]}
+        min={daily.temperature_2m_min[0]}
+        tempunits={currentunits.temperature}
+      />
+      <WeatherMainState
+        weathercode={current.weathercode}
+        fechaActual={fechaActual}
+      />
     </Main>
   );
 }

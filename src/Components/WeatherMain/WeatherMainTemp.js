@@ -25,7 +25,7 @@ const Tempclock = styled.div`
   }
 `;
 
-function WeatherMainTemp({ temp }) {
+function WeatherMainTemp({ temp, tempunits }) {
   let rotationangle;
 
   if (typeof temp === "number") {
@@ -44,7 +44,9 @@ function WeatherMainTemp({ temp }) {
       <Tempclock $rotationangle={rotationangle}>
         <img src={clockarrow} alt="Clock Arrow"></img>
       </Tempclock>
-      <H2T>{temp}°C</H2T>
+      <H2T>
+        {temp} {tempunits}
+      </H2T>
     </Temp>
   );
 }

@@ -8,13 +8,15 @@ const WindStyle = styled.div`
   flex: 1 0 200px;
 `;
 
-function Wind({ clima }) {
+function Wind({ windspeed, windspeedunits }) {
   return (
     <WindStyle>
       <P1>
         <i className="wi wi-strong-wind"></i> Viento:{" "}
       </P1>
-      <H2>{clima.windspeed} km/h</H2>
+      <H2>
+        {windspeed} {windspeedunits}
+      </H2>
       <P1>ayayayay</P1>
     </WindStyle>
   );

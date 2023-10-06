@@ -13,17 +13,17 @@ const SunStyle = styled.div`
   }
 `;
 
-function SunTime({ clima }) {
+function SunTime({ sunrise, sunset }) {
   return (
     <SunStyle>
       <div>
         <i className="wi wi-sunrise"></i> Amanece
       </div>
-      <div>{clima.sunrise}</div>
+      <div>{sunrise.slice(-5)}</div>
       <div>
         <i className="wi wi-sunset"></i> Anochece
       </div>
-      <div>{clima.sunset}</div>
+      <div>{sunset.slice(-5)}</div>
     </SunStyle>
   );
 }

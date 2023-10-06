@@ -8,13 +8,16 @@ const HumidityStyle = styled.div`
   flex: 1 0 200px;
 `;
 
-function Humidity({ clima }) {
+function Humidity({ humidity, humidityunits }) {
   return (
     <HumidityStyle>
       <P1>
         <i className="wi wi-humidity"></i> Humedad:{" "}
       </P1>
-      <H2>{clima.humidity}%</H2>
+      <H2>
+        {humidity}
+        {humidityunits}
+      </H2>
       <P1>Mi Pelo es un desastre</P1>
     </HumidityStyle>
   );

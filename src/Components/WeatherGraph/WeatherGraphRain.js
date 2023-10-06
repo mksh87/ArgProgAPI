@@ -1,17 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 
-function WeatherGraphRain({ clima }) {
+function WeatherGraphRain({ hourly, hourlyunits, horaActual }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const chartHeight = "200vh";
 
   useEffect(() => {
-    if (clima.length === 0) return;
+    if (hourly.time.length === 0) return;
 
-    const labels = clima.map((hora) => hora.horario);
-    const precipitacionesData = clima.map((hora) => hora.precipitaciones);
+    const labels = hourly.time
+      .map((hora) => hora.slice(-5))
+      .slice(horaActual, horaActual + 24);
+    const precipitacionesData = hourly.precipitation_probability.slice(
+      horaActual,
+      horaActual + 24
+    );
 
     const ctx = chartRef.current.getContext("2d");
 
@@ -26,7 +31,8 @@ function WeatherGraphRain({ clima }) {
         labels,
         datasets: [
           {
-            label: "Precipitaciones",
+            label:
+              "Precipitaciones (" + hourlyunits.precipitation_probability + ")",
             data: precipitacionesData,
             backgroundColor: "rgba(255, 99, 132, 0.8)",
             borderColor: "rgba(255, 99, 132, 1)",
@@ -43,7 +49,10 @@ function WeatherGraphRain({ clima }) {
           "precipitaciones-y-axis": {
             title: {
               display: true,
-              text: "(%)", // Título del eje Y
+              text:
+                "Precipitaciones (" +
+                hourlyunits.precipitation_probability +
+                ")", // Título del eje Y
             },
             type: "linear",
             position: "left",
@@ -68,7 +77,12 @@ function WeatherGraphRain({ clima }) {
       // Elimina el listener cuando el componente se desmonta
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [clima, windowWidth]);
+  }, [
+    windowWidth,
+    hourly.precipitation_probability,
+    hourly.time,
+    hourlyunits.precipitation_probability,
+  ]);
 
   const handleWindowResize = () => {
     // Actualiza el estado del ancho de la ventana al cambiar el tamaño

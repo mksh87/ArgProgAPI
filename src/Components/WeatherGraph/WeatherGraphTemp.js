@@ -1,17 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 
-function WeatherGraphTemp({ clima }) {
+function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const chartHeight = "200vh";
 
   useEffect(() => {
-    if (clima.length === 0) return;
+    if (hourly.time.length === 0) return;
 
-    const labels = clima.map((hora) => hora.horario);
-    const temperaturaData = clima.map((hora) => hora.temperatura);
+    const labels = hourly.time
+      .map((hora) => hora.slice(-5))
+      .slice(horaActual, horaActual + 24);
+    const temperaturaData = hourly.temperature_2m.slice(
+      horaActual,
+      horaActual + 24
+    );
 
     const ctx = chartRef.current.getContext("2d");
 
@@ -26,7 +31,7 @@ function WeatherGraphTemp({ clima }) {
         labels,
         datasets: [
           {
-            label: "Temperatura",
+            label: "Temperatura (" + hourlyunits.temperature_2m + ")",
             data: temperaturaData,
             backgroundColor: "rgba(75, 192, 192, 0.8)",
             borderColor: "rgba(75, 192, 192, 1)",
@@ -47,7 +52,7 @@ function WeatherGraphTemp({ clima }) {
             position: "left",
             title: {
               display: true,
-              text: "Temperatura (°C)", // Título del eje Y
+              text: "Temperatura (" + hourlyunits.temperature_2m + ")", // Título del eje Y
             },
             ticks: {
               callback: (value) => `${value}°C`, // Agrega "°C" al valor
@@ -73,7 +78,12 @@ function WeatherGraphTemp({ clima }) {
       // Elimina el listener cuando el componente se desmonta
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [clima, windowWidth]);
+  }, [
+    windowWidth,
+    hourly.temperature_2m,
+    hourly.time,
+    hourlyunits.temperature_2m,
+  ]);
 
   const handleWindowResize = () => {
     // Actualiza el estado del ancho de la ventana al cambiar el tamaño

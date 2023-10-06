@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import WeatherMain from "./WeatherMain";
 import WeatherGraph from "./WeatherGraph";
 import WeatherHighlights from "./WeatherHighlights";
 import weatherdata from "../weatherdata.json";
 
+//https://api.open-meteo.com/v1/forecast?latitude=-31.375&longitude=-64.125&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3
+
 function Weather() {
-  console.log(weatherdata.latitude);
+  // const [weatherData2, setWeatherData2] = useState();
+
+  // const fetchWeatherApi = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3"
+  //     );
+  //     const data = await response.json();
+  //     setWeatherData2(data);
+  //   } catch (error) {
+  //     console.error("Error fetching weather data:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchWeatherApi();
+  // }, []);
+
+  // console.log(weatherData2);
+
+  // console.log(weatherData2.current_weather.temperature);
+
+  // Estados para la fecha y hora actual
+  const [fechaActual, setFechaActual] = useState(new Date());
+  const [horaActual, setHoraActual] = useState(new Date().getHours());
+
+  // Actualizar la fecha y hora actual cada segundo
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFechaActual(new Date());
+      setHoraActual(new Date().getHours());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  function redondearHoraAbajo(hora) {
+    return Math.floor(hora);
+  }
 
   const climaAhora = {
     temperatura: 40,
@@ -21,44 +60,30 @@ function Weather() {
     airquality: 105,
   };
 
-  const climaHoy = [
-    { horario: "00:00", temperatura: 6, precipitaciones: 10 },
-    { horario: "01:00", temperatura: 7, precipitaciones: 1 },
-    { horario: "02:00", temperatura: 8, precipitaciones: 1 },
-    { horario: "03:00", temperatura: 9, precipitaciones: 3 },
-    { horario: "04:00", temperatura: 9, precipitaciones: 10 },
-    { horario: "05:00", temperatura: 10, precipitaciones: 20 },
-    { horario: "06:00", temperatura: 14, precipitaciones: 40 },
-    { horario: "07:00", temperatura: 15, precipitaciones: 40 },
-    { horario: "08:00", temperatura: 19, precipitaciones: 40 },
-    { horario: "09:00", temperatura: 20, precipitaciones: 70 },
-    { horario: "10:00", temperatura: 24, precipitaciones: 70 },
-    { horario: "11:00", temperatura: 29, precipitaciones: 95 },
-    { horario: "12:00", temperatura: 29, precipitaciones: 40 },
-    { horario: "13:00", temperatura: 27, precipitaciones: 10 },
-    { horario: "14:00", temperatura: 25, precipitaciones: 1 },
-    { horario: "15:00", temperatura: 22, precipitaciones: 1 },
-    { horario: "16:00", temperatura: 20, precipitaciones: 1 },
-    { horario: "17:00", temperatura: 21, precipitaciones: 1 },
-    { horario: "18:00", temperatura: 17, precipitaciones: 1 },
-    { horario: "19:00", temperatura: 13, precipitaciones: 1 },
-    { horario: "20:00", temperatura: 15, precipitaciones: 1 },
-    { horario: "21:00", temperatura: 11, precipitaciones: 1 },
-    { horario: "22:00", temperatura: 11, precipitaciones: 1 },
-    { horario: "23:00", temperatura: 10, precipitaciones: 1 },
-    // Agrega los demás datos aquí
-  ];
-
   return (
     <div>
       <WeatherMain
-        clima={climaAhora}
         current={weatherdata.current_weather}
+        currentunits={weatherdata.current_weather_units}
         daily={weatherdata.daily}
         dailyunits={weatherdata.daily_units}
+        fechaActual={fechaActual}
       />
-      <WeatherGraph clima={climaHoy} />
-      <WeatherHighlights clima={climaAhora} />
+      <WeatherGraph
+        hourly={weatherdata.hourly}
+        hourlyunits={weatherdata.hourly_units}
+        horaActual={redondearHoraAbajo(horaActual)}
+      />
+      <WeatherHighlights
+        clima={climaAhora}
+        current={weatherdata.current_weather}
+        currentunits={weatherdata.current_weather_units}
+        daily={weatherdata.daily}
+        dailyunits={weatherdata.daily_units}
+        hourly={weatherdata.hourly}
+        hourlyunits={weatherdata.hourly_units}
+        horaActual={redondearHoraAbajo(horaActual)}
+      />
     </div>
   );
 }

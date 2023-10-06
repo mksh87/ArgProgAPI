@@ -20,17 +20,8 @@ const StateDescription = styled(State)`
   font-size: 40px;
 `;
 
-function WeatherMainState({ weathercode }) {
-  // Estados para la fecha y hora actual
-  const [fechaActual, setFechaActual] = useState(new Date());
-
-  // Actualizar la fecha y hora actual cada segundo
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFechaActual(new Date());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+function WeatherMainState({ weathercode, fechaActual }) {
+  // console.log(redondearHoraAbajo(horaActual));
 
   return (
     <State>

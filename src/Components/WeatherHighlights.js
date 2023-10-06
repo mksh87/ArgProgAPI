@@ -21,15 +21,36 @@ const HLMain = styled.div`
   }
 `;
 
-function WeatherHighlights({ clima }) {
+function WeatherHighlights({
+  clima,
+  current,
+  currentunits,
+  daily,
+  dailyunits,
+  hourly,
+  hourlyunits,
+  horaActual,
+}) {
   return (
     <HLMain>
       <AirQuality clima={clima} />
-      <Visibility clima={clima} />
-      <Wind clima={clima} />
-      <UVindex clima={clima} />
-      <SunTime clima={clima} />
-      <Humidity clima={clima} />
+      <Visibility
+        visibility={hourly.visibility[horaActual]}
+        visibilityunits={hourlyunits.visibility}
+      />
+      <Wind
+        windspeed={current.windspeed}
+        windspeedunits={currentunits.windspeed}
+      />
+      <UVindex
+        uv_index={hourly.uv_index[horaActual]}
+        uv_indexunits={hourlyunits.uv_index}
+      />
+      <SunTime sunrise={daily.sunrise[0]} sunset={daily.sunset[0]} />
+      <Humidity
+        humidity={hourly.relativehumidity_2m[horaActual]}
+        humidityunits={hourlyunits.relativehumidity_2m}
+      />
     </HLMain>
   );
 }

@@ -8,13 +8,17 @@ const Maxmin = styled.div`
   flex: 1 0 200px;
 `;
 
-function WeatherMainMaxmin({ max, min }) {
+function WeatherMainMaxmin({ max, min, tempunits }) {
   return (
     <Maxmin>
       <P1>Temperatura máxima:</P1>
-      <H2>{max}°C</H2>
+      <H2>
+        {max} {tempunits}
+      </H2>
       <P1>Temperatura mínima:</P1>
-      <H2>{min}°C</H2>
+      <H2>
+        {min} {tempunits}
+      </H2>
     </Maxmin>
   );
 }

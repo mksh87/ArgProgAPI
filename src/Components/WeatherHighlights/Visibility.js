@@ -8,13 +8,15 @@ const VisibilityStyle = styled.div`
   flex: 1 0 200px;
 `;
 
-function Visibility({ clima }) {
+function Visibility({ visibility, visibilityunits }) {
   return (
     <VisibilityStyle>
       <P1>
         <i className="wi wi-horizon-alt"></i>Visibilidad:
       </P1>
-      <H2>{clima.visibility} km</H2>
+      <H2>
+        {visibility} {visibilityunits}
+      </H2>
       <P1>No se ve un carajo</P1>
     </VisibilityStyle>
   );
