@@ -1,70 +1,42 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado usando [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Sobre este proyecto
 
-In the project directory, you can run:
+Esta app está enmarcada dentro del trabajo práctico N°1 del curso de Argentina Programa 4.0: "Front-End de Sitio Web Usando API".
+La aplicación consistirá en dos partes:
 
-### `npm start`
+- Una app de clima.
+- Una app de transporte.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Versiones
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+V0: la app de clima está estructurada y se ha dejado un espacio reservado para la app de transporte.
 
-### `npm test`
+### App de clima
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La app de clima (Weather) consiste en varios componentes que toman información de un json. En este caso brinda la siguiente información:
 
-### `npm run build`
+- **WeatherMain:**
+  - **Temp:** nos da la temepratura actual acompañado con un reloj dinámico.
+  - **State:** nos indica el estado actual del clima (despejado, nublado, etc.) acompañado de un ícono y de la fecha y hora actual.
+  - Maxmin: nos indica la temperatura máxima y mínima del día.
+- **WeatherGraph:** nos brinda un gráfico que comienza en el horario actual y finaliza en una proyección de 24hs en el futuro (por ejemplo, si actualmente son las 10:30 am, el gráfico mostrará la información desde las 10am de hoy hasta las 9am de mañana).
+  - **WeatherGraphTemp:** realiza este gráfico con el pronóstico de temperatura.
+  - **WeatherGraphRain:** realiza este gráfico con el pronóstico de probabilidad de precipitaciones.
+- **WeatherHighlights:** nos brinda varias ventanas de información complementaria, incluyendo:
+  - **Humidity:** indica la humedad relativa porcentual según el horario actual.
+  - **Rain:** indica las precipitaciones totales del día en mm.
+  - **SunTime:** indica el horario en que amanece y que anochece del día.
+  - **UVindex:** indica el índice de rayos ultravioleta en el horario actual.
+  - **Visibility:** indica la visibilidad en el horario actual.
+  - **Wind:** indica la velocidad del viento en el horario actual.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Aspectos a mejorar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Mejorar la estética y distribución de los componentes.
+  - Mejoras estéticas generales de colores, tipos de letra, tamaños relativos, etc.
+  - La aguja del reloj de temperatura podría tener alguna animación.
+- Afianzar la respuesta responsive de la aplicación. Actualmente se ajusta en la pantalla al cargarse, salvo algunas aplicaciones que son afectadas por flex wrap, que al desbordar hacen que toda la app ocupe más espacio en vertical y se genere un scroll.
+- Los gráficos se cargan bien al inicio pero si luego se cambia el tamaño de pantalla, se ajusta el ancho pero no el alto. Para que vuelva a ajustarse es necesario refrescar. Necesito encontrar el motivo por el que no se ajusta automáticamente.
