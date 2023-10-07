@@ -5,7 +5,10 @@ import Weather from "./Components/Weather";
 function App() {
   return (
     <div className="App">
-      <Weather></Weather>
+      <div className="weather">
+        <Weather></Weather>
+      </div>
+      <div className="transport"> Acá va la app de transporte</div>
       {/* <Practico1></Practico1> */}
     </div>
   );

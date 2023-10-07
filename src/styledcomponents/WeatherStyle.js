@@ -8,21 +8,15 @@ export const HM1 = styled.div`
 `;
 
 export const H2 = styled.div`
-  padding: 5px;
+  padding: 2px;
   margin: 0px;
-  font-size: 35px;
-`;
-
-export const H2T = styled(H2)`
-  padding: 0px;
-  margin: -25%;
-  font-size: 3vmax;
+  font-size: 1.5vmax;
 `;
 
 export const P1 = styled.p`
-  padding: 5px;
+  padding: 2px;
   margin: 0px;
-  font-size: 15px;
+  font-size: 1vmax;
 `;
 
 export const H1pro = styled(HM1)`

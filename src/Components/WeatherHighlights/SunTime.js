@@ -1,30 +1,16 @@
 import React from "react";
-import styled from "styled-components";
-
-const SunStyle = styled.div`
-  display: grid;
-  background-color: lightblue;
-  flex: 1 0 200px;
-  grid-template-rows: repeat(4, 25%);
-
-  & div {
-    align-self: stretch;
-    f
-  }
-`;
+import { P1 } from "../../styledcomponents/WeatherStyle";
 
 function SunTime({ sunrise, sunset }) {
   return (
-    <SunStyle>
-      <div>
-        <i className="wi wi-sunrise"></i> Amanece
-      </div>
-      <div>{sunrise.slice(-5)}</div>
-      <div>
-        <i className="wi wi-sunset"></i> Anochece
-      </div>
-      <div>{sunset.slice(-5)}</div>
-    </SunStyle>
+    <div className="highlights_module">
+      <P1>
+        <i className="wi wi-sunrise"></i> {sunrise.slice(-5)}
+      </P1>
+      <P1>
+        <i className="wi wi-sunset"></i> {sunset.slice(-5)}
+      </P1>
+    </div>
   );
 }
 

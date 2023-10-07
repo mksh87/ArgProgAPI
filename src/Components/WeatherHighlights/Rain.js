@@ -1,17 +1,17 @@
 import React from "react";
 import { H2, P1 } from "../../styledcomponents/WeatherStyle";
 
-function UVindex({ uv_index, uv_indexunits }) {
+function Rain({ rain, rainunits }) {
   return (
     <div className="highlights_module">
       <P1>
-        <i className="wi wi-hot"></i>Índice UV:
+        <i className="wi wi-cloud-refresh"></i> Precipitaciones:
       </P1>
       <H2>
-        {uv_index} {uv_indexunits}
+        {rain} {rainunits}
       </H2>
     </div>
   );
 }
 
-export default UVindex;
+export default Rain;

@@ -5,7 +5,7 @@ function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const chartHeight = "200vh";
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight / 2);
 
   useEffect(() => {
     if (hourly.time.length === 0) return;
@@ -80,6 +80,8 @@ function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
     };
   }, [
     windowWidth,
+    windowHeight,
+    horaActual,
     hourly.temperature_2m,
     hourly.time,
     hourlyunits.temperature_2m,
@@ -88,11 +90,12 @@ function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
   const handleWindowResize = () => {
     // Actualiza el estado del ancho de la ventana al cambiar el tamaño
     setWindowWidth(window.innerWidth);
+    setWindowHeight(window.innerHeight);
   };
 
   return (
     <div>
-      <canvas ref={chartRef} width={windowWidth} height={chartHeight} />
+      <canvas ref={chartRef} width={windowWidth} height={windowHeight} />
     </div>
   );
 }

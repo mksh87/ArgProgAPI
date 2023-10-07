@@ -4,17 +4,21 @@ import WeatherGraphRain from "./WeatherGraph/WeatherGraphRain";
 
 function WeatherGraph({ hourly, hourlyunits, horaActual }) {
   return (
-    <div>
-      <WeatherGraphTemp
-        hourly={hourly}
-        hourlyunits={hourlyunits}
-        horaActual={horaActual}
-      />
-      <WeatherGraphRain
-        hourly={hourly}
-        hourlyunits={hourlyunits}
-        horaActual={horaActual}
-      />
+    <div className="graphs">
+      <div className="graph">
+        <WeatherGraphTemp
+          hourly={hourly}
+          hourlyunits={hourlyunits}
+          horaActual={horaActual}
+        />
+      </div>
+      <div className="graph">
+        <WeatherGraphRain
+          hourly={hourly}
+          hourlyunits={hourlyunits}
+          horaActual={horaActual}
+        />
+      </div>
     </div>
   );
 }

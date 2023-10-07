@@ -1,24 +1,31 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import clockback from "../../img/tempclock-01.svg";
+import clockback from "../../img/tempclock-03.svg";
 import clockarrow from "../../img/tempclock-02.svg";
-import { H2T } from "../../styledcomponents/WeatherStyle";
+
+const H2T = styled.div`
+  padding: 0px;
+  margin: -25%;
+  font-size: 2vmax;
+  height: 30%;
+`;
 
 const Temp = styled.div`
-  display: grid;
-  font-size: 26px;
   background-color: lightgreen;
   flex: 1 0 150px;
 `;
 
 const Tempclock = styled.div`
   background-image: url(${clockback});
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 5%;
+  height: 70%;
 
   & img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     ${(props) => css`
       transform: rotate(${props.$rotationangle}deg);
     `}
