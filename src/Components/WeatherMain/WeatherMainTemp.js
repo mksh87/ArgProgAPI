@@ -13,6 +13,7 @@ const H2T = styled.div`
 const Temp = styled.div`
   background-color: lightgreen;
   flex: 1 0 150px;
+  box-shadow: -1px 1px 5px black;
 `;
 
 const Tempclock = styled.div`

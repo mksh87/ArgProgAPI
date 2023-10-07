@@ -47,7 +47,7 @@ html {
 }
 
 .weather .weather-container .graph-component {
-  flex-grow: 3;
+  flex-grow: 20;
   text-align: center;
   margin: 5px;
 }
@@ -70,6 +70,7 @@ html {
   display: grid;
   background-color: orange;
   flex: 1 0 150px;
+  box-shadow: -1px 1px 5px black;
 }
 
 .state .icon {
@@ -86,6 +87,7 @@ html {
   display: grid;
   background-color: lightblue;
   flex: 1 0 150px;
+  box-shadow: -1px 1px 5px black;
 }
 
 
@@ -94,21 +96,26 @@ html {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background-color: lightgray;
+
 }
 
 .graphs .graph {
   flex: 50%;
+  border-radius: 5px;
+  box-shadow: -1px 1px 5px black;
 }
 
 
-.highlights {
-  /* flex: 40%; */
-}
+/*.highlights {
+   flex: 40%; 
+}*/
 
 .highlights_module {
   display: grid;
   background-color: lightblue;
   flex: 1 0 100px;
+  box-shadow: -1px 1px 5px black;
 }
 
 
