@@ -16,19 +16,17 @@ html {
   text-align: center;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   align-items: stretch;
   align-content: stretch;
 }
 
 .App .weather {
-  width: 50%;
   background-color: bisque;
 }
 
 .App .transport {
-  width: 50%;
   text-align: center;
   background-color: lightblue;
 }

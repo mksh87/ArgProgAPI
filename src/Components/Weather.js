@@ -2,29 +2,8 @@ import React, { useEffect, useState } from "react";
 import WeatherMain from "./WeatherMain";
 import WeatherGraph from "./WeatherGraph";
 import WeatherHighlights from "./WeatherHighlights";
-import weatherdata from "../weatherdata.json";
 
-//https://api.open-meteo.com/v1/forecast?latitude=-31.375&longitude=-64.125&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3
-
-function Weather() {
-  /*const [weatherData2, setWeatherData2] = useState();
-
-  const fetchWeatherApi = async () => {
-    try {
-      const response = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3"
-      );
-      const data = await response.json();
-      setWeatherData2(data);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchWeatherApi();
-  }, []);*/
-
+function Weather({ weatherdata }) {
   // Estados para la fecha y hora actual
   const [fechaActual, setFechaActual] = useState(new Date());
   const [horaActual, setHoraActual] = useState(new Date().getHours());
@@ -40,6 +19,10 @@ function Weather() {
 
   function redondearHoraAbajo(hora) {
     return Math.floor(hora);
+  }
+
+  if (!weatherdata) {
+    return <div>Loading...</div>;
   }
 
   return (

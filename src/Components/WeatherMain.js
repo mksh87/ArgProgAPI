@@ -21,6 +21,7 @@ function WeatherMain({
         weathercode={current.weathercode}
         fechaActual={fechaActual}
       />
+
       <WeatherMainMaxmin
         max={daily.temperature_2m_max[0]}
         min={daily.temperature_2m_min[0]}
