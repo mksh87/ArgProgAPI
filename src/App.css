@@ -16,17 +16,22 @@ html {
   text-align: center;
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
   align-content: stretch;
 }
 
 .App .weather {
+  flex-grow: 1;
+  flex-basis: 500px;
   background-color: bisque;
 }
 
 .App .transport {
+  flex-grow: 1;
+  flex-basis: 500px;
+
   text-align: center;
   background-color: lightblue;
 }
