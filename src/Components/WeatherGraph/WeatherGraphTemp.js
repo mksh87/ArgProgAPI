@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
+/* import HourlyTable from "./WeatherTableRain"; */
 
 function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
   const chartRef = useRef(null);
@@ -11,7 +12,7 @@ function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
     if (hourly.time.length === 0) return;
 
     const labels = hourly.time
-      .map((hora) => hora.slice(-5))
+      .map((hora) => hora.slice(-5, -3))
       .slice(horaActual, horaActual + 24);
     const temperaturaData = hourly.temperature_2m.slice(
       horaActual,
@@ -96,6 +97,14 @@ function WeatherGraphTemp({ hourly, hourlyunits, horaActual }) {
   return (
     <div>
       <canvas ref={chartRef} width={windowWidth} height={windowHeight} />
+      {/*       <HourlyTable
+        hourlyData={hourly.time
+          .slice(horaActual, horaActual + 24)
+          .map((hour, index) => ({
+            hour: hour.slice(-5, -3),
+            rain: hourly.precipitation_probability[horaActual + index],
+          }))}
+      /> */}
     </div>
   );
 }

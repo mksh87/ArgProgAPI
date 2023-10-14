@@ -11,7 +11,7 @@ function WeatherGraphRain({ hourly, hourlyunits, horaActual }) {
     if (hourly.time.length === 0) return;
 
     const labels = hourly.time
-      .map((hora) => hora.slice(-5))
+      .map((hora) => hora.slice(-5, -3))
       .slice(horaActual, horaActual + 24);
     const precipitacionesData = hourly.precipitation_probability.slice(
       horaActual,

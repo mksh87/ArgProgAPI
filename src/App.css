@@ -122,6 +122,27 @@ html {
 }
 
 
+.raintable {
+  border: 1px solid black;
+  padding-left: 6.8%;
+  border-spacing: 2px;
+}
+
+.raintable tr {
+  margin: 0;
+  padding: 0;
+
+}
+
+.raintable td {
+  border: 0px solid black;
+  margin: 0;
+  padding: 0;
+  font-size: 1vmax;
+  width: 4.5%;
+}
+
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
