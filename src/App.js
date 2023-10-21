@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Weather from "./Components/Weather";
 import SeleccionTransporte from "./Transporte/SeleccionTransporte";
-import transportdata2 from "./transportdata_long.json";
 
 /* import Practico1 from "./practico1/practico1"; */
 
@@ -76,11 +75,7 @@ function App() {
         </div>
         <div className="transport">
           {loading2 && <div>Cargando...</div>}
-          {!loading2 && transportdata2 && (
-            <SeleccionTransporte
-              transportdata2={transportdata2}
-            ></SeleccionTransporte>
-          )}
+          {!loading2 && <SeleccionTransporte></SeleccionTransporte>}
         </div>
         {/* <Practico1></Practico1> */}
       </div>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { linea } from "./ListadoLineas";
-import Transporte from "./Transporte";
+import TransitoDashboard from "./Transporte";
+import transportdata2 from "../transportdata_long.json";
 
-function SeleccionTransporte({ transportdata2 }) {
+function SeleccionTransporte() {
   const [searchTerm, setSearchTerm] = useState("");
   const [lineaSeleccionada, setLineaSeleccionada] = useState("");
-  const [datosLineaSeleccionada, setDatosLineaSeleccionada] = useState({});
+  const [datosLineaSeleccionada, setDatosLineaSeleccionada] = useState([]);
   const [filteredLinea, setFilteredLinea] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false); // Control the visibility of the dropdown
   const [noResults, setNoResults] = useState(false); // Control the "La linea no existe" message
@@ -73,7 +74,7 @@ function SeleccionTransporte({ transportdata2 }) {
           <p>Linea: {lineaSeleccionada}</p>
         </div>
       </div>
-      <Transporte datosLineaSeleccionada={datosLineaSeleccionada} />
+      <TransitoDashboard datosLineaSeleccionada={datosLineaSeleccionada} />
     </>
   );
 }
