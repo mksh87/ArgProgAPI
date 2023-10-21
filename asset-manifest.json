@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/ArgProgAPI/static/css/main.5def93bb.css",
-    "main.js": "/ArgProgAPI/static/js/main.8aa6c0ba.js",
-    "static/js/787.091a7645.chunk.js": "/ArgProgAPI/static/js/787.091a7645.chunk.js",
+    "main.css": "/ArgProgAPI/static/css/main.cff00451.css",
+    "main.js": "/ArgProgAPI/static/js/main.a668d899.js",
     "static/media/weathericons-regular-webfont.svg": "/ArgProgAPI/static/media/weathericons-regular-webfont.1341a15172cec8dae06e.svg",
     "static/media/weathericons-regular-webfont.eot": "/ArgProgAPI/static/media/weathericons-regular-webfont.bb2ec001c20cf752f852.eot",
     "static/media/weathericons-regular-webfont.ttf": "/ArgProgAPI/static/media/weathericons-regular-webfont.0942d1e1c447d6ce3ffc.ttf",
     "static/media/weathericons-regular-webfont.woff": "/ArgProgAPI/static/media/weathericons-regular-webfont.371511ddba5fdac0538c.woff",
     "static/media/weathericons-regular-webfont.woff2": "/ArgProgAPI/static/media/weathericons-regular-webfont.e218aee6928fe3da9ed6.woff2",
     "static/media/tempclock-03.svg": "/ArgProgAPI/static/media/tempclock-03.2b43b48548f0ffe0520be9b5552d9914.svg",
-    "static/media/tempclock-02.svg": "/ArgProgAPI/static/media/tempclock-02.574c20086a0f1449dbf42c6304f14d49.svg",
     "index.html": "/ArgProgAPI/index.html",
-    "main.5def93bb.css.map": "/ArgProgAPI/static/css/main.5def93bb.css.map",
-    "main.8aa6c0ba.js.map": "/ArgProgAPI/static/js/main.8aa6c0ba.js.map",
-    "787.091a7645.chunk.js.map": "/ArgProgAPI/static/js/787.091a7645.chunk.js.map"
+    "static/media/tempclock-02.svg": "/ArgProgAPI/static/media/tempclock-02.574c20086a0f1449dbf42c6304f14d49.svg",
+    "main.cff00451.css.map": "/ArgProgAPI/static/css/main.cff00451.css.map",
+    "main.a668d899.js.map": "/ArgProgAPI/static/js/main.a668d899.js.map"
   },
   "entrypoints": [
-    "static/css/main.5def93bb.css",
-    "static/js/main.8aa6c0ba.js"
+    "static/css/main.cff00451.css",
+    "static/js/main.a668d899.js"
   ]
 }
