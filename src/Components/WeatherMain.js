@@ -4,13 +4,7 @@ import WeatherMainState from "./WeatherMain/WeatherMainState";
 import WeatherMainTemp from "./WeatherMain/WeatherMainTemp";
 import WeatherMainMaxmin from "./WeatherMain/WeatherMainMaxmin";
 
-function WeatherMain({
-  current,
-  currentunits,
-  daily,
-  dailyunits,
-  fechaActual,
-}) {
+function WeatherMain({ current, currentunits, daily, fechaActual }) {
   return (
     <div className="main">
       <WeatherMainTemp

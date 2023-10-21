@@ -22,6 +22,36 @@ html {
   align-content: stretch;
 }
 
+.search-container {
+  position: relative;
+  text-align: -webkit-center;
+}
+
+.search-box {
+  position: "relative";
+  width: 20%;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 22%;
+  margin-left: 40%;
+  /* Set the same width as the search box */
+  left: 0;
+  /* Align with the left edge of the search box */
+
+}
+
+.leaflet-container {
+  width: 100wh;
+  height: 100vh;
+}
+
 .App .weather {
   flex-grow: 1;
   flex-basis: 500px;

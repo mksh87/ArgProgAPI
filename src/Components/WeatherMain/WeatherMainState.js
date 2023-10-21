@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import weatherDataIcons from "../../weatherstateicons.json";
+import React from "react";
+import weatherDataIcons from "../weatherstateicons.json";
 
 function WeatherMainState({ weathercode, fechaActual }) {
-  // console.log(redondearHoraAbajo(horaActual));
-
   return (
     <div className="state">
       <div className="icon">
