@@ -3,7 +3,7 @@ import provinciasData from "../provincias.json";
 import localidadesData from "../localidades.json";
 import Weather from "./Weather";
 
-function BusquedaClima({ weatherdata }) {
+function BusquedaClima() {
   const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
   const [municipioSeleccionado, setMunicipioSeleccionado] = useState(null); // Inicialmente nulo
   const [municipiosFiltrados, setMunicipiosFiltrados] = useState([]);
@@ -25,7 +25,6 @@ function BusquedaClima({ weatherdata }) {
   const handleProvinciaChange = (e) => {
     setProvinciaSeleccionada(e.target.value);
     setMunicipioSeleccionado(null); // Reiniciar el municipio seleccionado al cambiar la provincia
-    setMunicipioInput("");
     setMunicipioInput("");
     setMunicipiosFiltrados([]);
   };
@@ -61,7 +60,47 @@ function BusquedaClima({ weatherdata }) {
     setMunicipioInput(selectedMunicipio.toLowerCase());
     setMunicipiosFiltrados([]);
     setShowDropdown(false);
+    console.log(municipioCompleto.centroide.lat);
+    console.log(municipioCompleto.centroide.lon);
+
+    setWeatherURL(
+      "https://api.open-meteo.com/v1/forecast?latitude=" +
+        municipioCompleto.centroide.lat +
+        "&longitude=" +
+        municipioCompleto.centroide.lon +
+        "&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3"
+    );
+
+    setLoading(true);
+    fetch(weatherURL)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setWeatherdata(data);
+        setLoading(false);
+      })
+      .catch((ex) => {
+        console.error(ex);
+      });
   };
+
+  const [weatherdata, setWeatherdata] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [weatherURL, setWeatherURL] = useState(
+    "https://api.open-meteo.com/v1/forecast?latitude=-31.4135&longitude=-64.181&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,visibility,windspeed_10m,uv_index,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=3"
+  );
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(weatherURL)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setWeatherdata(data);
+        setLoading(false);
+      })
+      .catch((ex) => {
+        console.error(ex);
+      });
+  }, []);
 
   return (
     <div>
@@ -108,11 +147,14 @@ function BusquedaClima({ weatherdata }) {
           </p>
         </div>
       )}
-      <Weather
-        municipioSeleccionado={municipioSeleccionado}
-        provinciaSeleccionada={provinciaSeleccionada}
-        weatherdata={weatherdata}
-      />
+      {loading && <div>Cargando...</div>}
+      {!loading && weatherdata && (
+        <Weather
+          municipioSeleccionado={municipioSeleccionado}
+          provinciaSeleccionada={provinciaSeleccionada}
+          weatherdata={weatherdata}
+        />
+      )}
     </div>
   );
 }
