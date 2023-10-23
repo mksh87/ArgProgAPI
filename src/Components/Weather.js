@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import WeatherMain from "./WeatherMain";
 import WeatherGraph from "./WeatherGraph";
 import WeatherHighlights from "./WeatherHighlights";
+import "./Weather.css";
 
-function Weather({ weatherdata }) {
+function Weather({
+  weatherdata,
+  municipioSeleccionado,
+  provinciaSeleccionada,
+}) {
   // Estados para la fecha y hora actual
   const [fechaActual, setFechaActual] = useState(new Date());
   const [horaActual, setHoraActual] = useState(new Date().getHours());
@@ -29,6 +34,8 @@ function Weather({ weatherdata }) {
     <div className="weather-container">
       <div className="weather-component">
         <WeatherMain
+          municipioSeleccionado={municipioSeleccionado}
+          provinciaSeleccionada={provinciaSeleccionada}
           current={weatherdata.current_weather}
           currentunits={weatherdata.current_weather_units}
           daily={weatherdata.daily}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { linea } from "./ListadoLineas";
 import TransitoDashboard from "./Transporte";
 import transportdata2 from "../transportdata_long.json";
+import "./Transporte.css";
 
 function SeleccionTransporte() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,10 +37,9 @@ function SeleccionTransporte() {
   const handleSelectValue = (value) => {
     setLineaSeleccionada(value);
 
-    const datos = transportdata2?.filter((item) =>
-      item.route_short_name.includes(value)
+    const datos = transportdata2?.filter(
+      (item) => item.route_short_name === value.toString()
     );
-
     setDatosLineaSeleccionada(datos);
     setSearchTerm(""); // Clear the search box
     setFilteredLinea([]); // Clear the dropdown
@@ -51,6 +51,7 @@ function SeleccionTransporte() {
       <div className="search-container">
         <div className="search-box">
           <input
+            id="searchbox"
             type="text"
             placeholder="Escribe la línea"
             value={searchTerm}

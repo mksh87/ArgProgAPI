@@ -5,7 +5,7 @@ function WeatherGraphRain({ hourly, hourlyunits, horaActual }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight / 2);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight / 5);
 
   useEffect(() => {
     if (hourly.time.length === 0) return;

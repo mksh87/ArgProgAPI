@@ -11,7 +11,7 @@ function WeatherMainState({ weathercode, fechaActual }) {
         ></i>
       </div>
       <div className="description">{weatherDataIcons[weathercode].name}</div>
-      <div>
+      <div className="time">
         {fechaActual.toLocaleString("es-AR", {
           timeZone: "America/Argentina/Buenos_Aires",
         })}

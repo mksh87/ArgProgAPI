@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Weather from "./Components/Weather";
+import BusquedaClima from "./Components/BusquedaClima";
 import SeleccionTransporte from "./Transporte/SeleccionTransporte";
 
 /* import Practico1 from "./practico1/practico1"; */
@@ -26,6 +25,7 @@ function App() {
       });
   }, []);
 
+  // eslint-disable-next-line
   const [loading2, setLoading2] = useState(false); //cambiar a True
   /*   const [transportdata, setTransportdata] = useState(null);
 
@@ -70,7 +70,7 @@ function App() {
         <div className="weather">
           {loading && <div>Cargando...</div>}
           {!loading && weatherdata && (
-            <Weather weatherdata={weatherdata} />
+            <BusquedaClima weatherdata={weatherdata} />
           )}{" "}
         </div>
         <div className="transport">

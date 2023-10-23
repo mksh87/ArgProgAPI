@@ -5,14 +5,14 @@ import clockarrow from "../../img/tempclock-02.svg";
 
 const H2T = styled.div`
   padding: 0px;
-  margin: -25%;
+  margin: -27%;
   font-size: 2vmax;
   height: 30%;
 `;
 
 const Temp = styled.div`
   background-color: lightgreen;
-  flex: 1 0 150px;
+  flex: 1;
   box-shadow: -1px 1px 5px black;
 `;
 
@@ -22,7 +22,7 @@ const Tempclock = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   margin: 5%;
-  height: 70%;
+  height: 100%;
 
   & img {
     max-width: 100%;

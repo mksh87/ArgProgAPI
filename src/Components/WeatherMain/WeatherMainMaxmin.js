@@ -1,17 +1,24 @@
 import React from "react";
 import { H2, P1 } from "../../styledcomponents/WeatherStyle";
 
-function WeatherMainMaxmin({ max, min, tempunits }) {
+function WeatherMainMaxmin({
+  max,
+  min,
+  tempunits,
+  municipioSeleccionado,
+  provinciaSeleccionada,
+}) {
   return (
     <div className="maxmin">
-      <P1>Máxima:</P1>
-      <H2>
-        {max} {tempunits}
-      </H2>
-      <P1>Mínima:</P1>
-      <H2>
-        {min} {tempunits}
-      </H2>
+      <P1>
+        {municipioSeleccionado?.nombre}, {provinciaSeleccionada}
+      </P1>
+      <P1>
+        Máxima: {max} {tempunits}
+      </P1>
+      <P1>
+        Mínima: {min} {tempunits}
+      </P1>
     </div>
   );
 }
