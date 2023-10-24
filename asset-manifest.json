@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ArgProgAPI/static/css/main.6cbecc64.css",
-    "main.js": "/ArgProgAPI/static/js/main.db4f961f.js",
+    "main.css": "/ArgProgAPI/static/css/main.a8ed4b59.css",
+    "main.js": "/ArgProgAPI/static/js/main.e76fd2b0.js",
     "static/media/weathericons-regular-webfont.svg": "/ArgProgAPI/static/media/weathericons-regular-webfont.1341a15172cec8dae06e.svg",
     "static/media/weathericons-regular-webfont.eot": "/ArgProgAPI/static/media/weathericons-regular-webfont.bb2ec001c20cf752f852.eot",
     "static/media/weathericons-regular-webfont.ttf": "/ArgProgAPI/static/media/weathericons-regular-webfont.0942d1e1c447d6ce3ffc.ttf",
@@ -10,11 +10,11 @@
     "static/media/tempclock-03.svg": "/ArgProgAPI/static/media/tempclock-03.2b43b48548f0ffe0520be9b5552d9914.svg",
     "index.html": "/ArgProgAPI/index.html",
     "static/media/tempclock-02.svg": "/ArgProgAPI/static/media/tempclock-02.574c20086a0f1449dbf42c6304f14d49.svg",
-    "main.6cbecc64.css.map": "/ArgProgAPI/static/css/main.6cbecc64.css.map",
-    "main.db4f961f.js.map": "/ArgProgAPI/static/js/main.db4f961f.js.map"
+    "main.a8ed4b59.css.map": "/ArgProgAPI/static/css/main.a8ed4b59.css.map",
+    "main.e76fd2b0.js.map": "/ArgProgAPI/static/js/main.e76fd2b0.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cbecc64.css",
-    "static/js/main.db4f961f.js"
+    "static/css/main.a8ed4b59.css",
+    "static/js/main.e76fd2b0.js"
   ]
 }
