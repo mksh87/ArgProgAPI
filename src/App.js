@@ -1,61 +1,78 @@
 import React, { useEffect, useState } from "react";
-import BusquedaClima from "./Components/BusquedaClima";
+import WeatherSearch from "./Components/WeatherSearch";
 import SeleccionTransporte from "./Transporte/SeleccionTransporte";
 
 /* import Practico1 from "./practico1/practico1"; */
-
 //https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6
 
 function App() {
-  // eslint-disable-next-line
-  const [loading2, setLoading2] = useState(false); //cambiar a True
-  /*   const [transportdata, setTransportdata] = useState(null);
+  const [activeTab, setActiveTab] = useState("Clima");
+  const [isHorizontal, setIsHorizontal] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLoading2(true);
-      fetch(
-        "https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6"
-      )
-        .then((resp) => resp.json())
-        .then((data) => {
-          setTransportdata(data);
-          setLoading2(false);
-        })
-        .catch((ex) => {
-          console.error(ex);
-        });
-    }, 1000);
-    return () => clearInterval(interval);
+    function handleWindowResize() {
+      setIsHorizontal(window.innerWidth > window.innerHeight);
+    }
+
+    handleWindowResize(); // Check initial orientation
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, []);
 
-  if (!loading2) {
-    const L253 = transportdata?.filter((obj) =>
-      /253/.test(obj.route_short_name)
-    );
-    const L153 = transportdata?.filter((obj) =>
-      /153/.test(obj.route_short_name)
-    );
-    const L321 = transportdata?.filter((obj) =>
-      /321/.test(obj.route_short_name)
-    );
-    console.log(L253);
-    console.log(L153);
-    console.log(L321);
-} */
-  //hacer un for en base a un arreglo de números y después juntar todo en un solo arreglo para pasarlo al hijo
-  //también hacer un segundo interval para la carga inicial
+  const handleTabClick = (tab) => {
+    if (tab !== activeTab) {
+      setActiveTab(tab);
+    }
+  };
 
   return (
     <>
       <div className="App">
-        <div className="weather">
-          <BusquedaClima />
-        </div>
-        <div className="transport">
-          {loading2 && <div>Cargando...</div>}
-          {!loading2 && <SeleccionTransporte></SeleccionTransporte>}
-        </div>
+        {isHorizontal ? (
+          <></>
+        ) : (
+          <div className="menu">
+            <button
+              className={activeTab === "Clima" ? "active" : ""}
+              onClick={() => handleTabClick("Clima")}
+            >
+              Clima
+            </button>
+            <button
+              className={activeTab === "Transporte" ? "active" : ""}
+              onClick={() => handleTabClick("Transporte")}
+            >
+              Colectivos
+            </button>
+          </div>
+        )}
+
+        {isHorizontal ? (
+          <>
+            <div className="weather">
+              <WeatherSearch />
+            </div>
+            <div className="transport">
+              <SeleccionTransporte />
+            </div>
+          </>
+        ) : (
+          <div className="content">
+            {activeTab === "Clima" ? (
+              <div className="weather">
+                <WeatherSearch />
+              </div>
+            ) : (
+              <div className="transport">
+                <SeleccionTransporte />
+              </div>
+            )}
+          </div>
+        )}
+
         {/* <Practico1></Practico1> */}
       </div>
     </>

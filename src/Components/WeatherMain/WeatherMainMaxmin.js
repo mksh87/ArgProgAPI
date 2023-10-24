@@ -10,9 +10,10 @@ function WeatherMainMaxmin({
 }) {
   return (
     <div className="maxmin">
-      <P1>
-        {municipioSeleccionado?.nombre}, {provinciaSeleccionada}
-      </P1>
+      <div className="municipio">
+        {municipioSeleccionado ? municipioSeleccionado.nombre : "Córdoba"},{" "}
+        {provinciaSeleccionada}
+      </div>
       <P1>
         Máxima: {max} {tempunits}
       </P1>

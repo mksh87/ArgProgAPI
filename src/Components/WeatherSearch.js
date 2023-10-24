@@ -3,8 +3,8 @@ import provinciasData from "../provincias.json";
 import localidadesData from "../localidades.json";
 import Weather from "./Weather";
 
-function BusquedaClima() {
-  const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
+function WeatherSearch() {
+  const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("Córdoba");
   const [municipioSeleccionado, setMunicipioSeleccionado] = useState(null); // Inicialmente nulo
   const [municipiosFiltrados, setMunicipiosFiltrados] = useState([]);
   const [municipioInput, setMunicipioInput] = useState("");
@@ -13,7 +13,9 @@ function BusquedaClima() {
   useEffect(() => {
     if (provinciaSeleccionada) {
       const filteredMunicipios = localidadesData.localidades.filter(
-        (municipio) => municipio.provincia.nombre === provinciaSeleccionada
+        (municipio) =>
+          municipio.provincia.nombre ===
+          provinciaSeleccionada.toLocaleLowerCase()
       );
 
       if (municipioInput === "") {
@@ -41,7 +43,8 @@ function BusquedaClima() {
 
     const filteredMunicipios = localidadesData.localidades.filter(
       (municipio) =>
-        municipio.provincia.nombre === provinciaSeleccionada &&
+        municipio.provincia.nombre ===
+          provinciaSeleccionada.toLocaleLowerCase() &&
         municipio.nombre.toLowerCase().includes(inputText.toLowerCase())
     );
 
@@ -53,7 +56,8 @@ function BusquedaClima() {
     // Encuentra el objeto completo del municipio seleccionado
     const municipioCompleto = localidadesData.localidades.find(
       (municipio) =>
-        municipio.provincia.nombre === provinciaSeleccionada &&
+        municipio.provincia.nombre ===
+          provinciaSeleccionada.toLocaleLowerCase() &&
         municipio.nombre === selectedMunicipio
     );
     setMunicipioSeleccionado(municipioCompleto);
@@ -140,13 +144,13 @@ function BusquedaClima() {
         </div>
       )}
 
-      {municipioSeleccionado && (
+      {/*       {municipioSeleccionado && (
         <div>
           <p className="municipio">
             Municipio seleccionado: {municipioSeleccionado.nombre.toLowerCase()}
           </p>
         </div>
-      )}
+      )} */}
       {loading && <div>Cargando...</div>}
       {!loading && weatherdata && (
         <Weather
@@ -159,4 +163,4 @@ function BusquedaClima() {
   );
 }
 
-export default BusquedaClima;
+export default WeatherSearch;

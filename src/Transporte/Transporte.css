@@ -20,10 +20,10 @@
     /* Set the same width as the search box */
     left: 0;
     /* Align with the left edge of the search box */
-
+    text-transform: capitalize;
 }
 
 .leaflet-container {
     width: 100wh;
-    height: 100vh;
+    height: 70vh;
 }
