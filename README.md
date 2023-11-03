@@ -13,11 +13,14 @@ La aplicación consistirá en dos partes:
 ## Versiones
 
 V0: la app de clima está estructurada y se ha dejado un espacio reservado para la app de transporte.
+V1: la app de clima ahora llama la información de la API.
+V2: la app de clima llama de la API y se puede filtrar por localidad. La app de transporte llama de un JSON estático y permite filtrar por linea de colectivo.
 
 ### App de clima
 
-La app de clima (Weather) consiste en varios componentes que toman información de un json. En este caso brinda la siguiente información:
+La app de clima (Weather) consiste en varios componentes que toman información de la API [Open Meteo](https://open-meteo.com/en/docs). En este caso brinda la siguiente información:
 
+- **WeatherSearch:** Permite filtrar por provincia y por localidad. Toma datos de un json y devuelve el nombre de la locaidad y sus coordenadas para utilizar en la API y llamar la info del clima.
 - **WeatherMain:**
   - **Temp:** nos da la temepratura actual acompañado con un reloj dinámico.
   - **State:** nos indica el estado actual del clima (despejado, nublado, etc.) acompañado de un ícono y de la fecha y hora actual.
@@ -33,13 +36,21 @@ La app de clima (Weather) consiste en varios componentes que toman información 
   - **Visibility:** indica la visibilidad en el horario actual.
   - **Wind:** indica la velocidad del viento en el horario actual.
 
+### App de transporte
+
+La app de transporte consiste en varios componentes que toman información de un json. En este caso brinda la siguiente información:
+
+- **SelecciónTransporte:** Permite filtrar por linea de colectivo y brinda los datos para poder llamar desde el JSON de transporte la ubicación de colectivos de esa linea.
+- **Transporte:** muestra el mapa utilizando la librería [Leaflet](https://leafletjs.com/) en base a la linea elegida en SelecciónTransporte.
+
 ## Aspectos a mejorar
 
 - Mejorar la estética y distribución de los componentes.
   - Mejoras estéticas generales de colores, tipos de letra, tamaños relativos, etc.
   - La aguja del reloj de temperatura podría tener alguna animación.
-- Afianzar la respuesta responsive de la aplicación. Actualmente se ajusta en la pantalla al cargarse, salvo algunas aplicaciones que son afectadas por flex wrap, que al desbordar hacen que toda la app ocupe más espacio en vertical y se genere un scroll.
-- Los gráficos se cargan bien al inicio pero si luego se cambia el tamaño de pantalla, se ajusta el ancho pero no el alto. Para que vuelva a ajustarse es necesario refrescar. Necesito encontrar el motivo por el que no se ajusta automáticamente.
+- Afianzar la respuesta responsive de la aplicación. Actualmente se ajusta a Mobile. Falta crear un media query para que muestre a escala en pantalla horizontal en sus distintos tamaños.
+- Mejorar el display de gráficos. Cambiar gráfico de precipitaciones por una tabla y hacer coincidir la tabla con el gráfico.
+- En la parte de Clima, hacer que los íconos se adapten según sea de día o de noche.
 
 ## Recursos externos
 

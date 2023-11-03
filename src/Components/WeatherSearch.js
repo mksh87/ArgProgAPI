@@ -64,8 +64,6 @@ function WeatherSearch() {
     setMunicipioInput(selectedMunicipio.toLowerCase());
     setMunicipiosFiltrados([]);
     setShowDropdown(false);
-    console.log(municipioCompleto.centroide.lat);
-    console.log(municipioCompleto.centroide.lon);
 
     setWeatherURL(
       "https://api.open-meteo.com/v1/forecast?latitude=" +

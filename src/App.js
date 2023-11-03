@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import WeatherSearch from "./Components/WeatherSearch";
 import SeleccionTransporte from "./Transporte/SeleccionTransporte";
+import SeleccionTransporte3 from "./Transporte/SeleccionTransporte3";
 
 /* import Practico1 from "./practico1/practico1"; */
-//https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6
+//https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id={numero}&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6
+
+//un useEffect que refresque la búsqueda cada 30seg y otro que se ejecute cuando cambias
 
 function App() {
   const [activeTab, setActiveTab] = useState("Clima");

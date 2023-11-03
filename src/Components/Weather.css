@@ -109,3 +109,14 @@
 .municipio {
     text-transform: capitalize;
 }
+
+@media (min-width: 901px) {
+    .state .icon {
+        font-size: 4vw;
+    }
+
+    .state .description,
+    .state .time {
+        font-size: 1.5vw;
+    }
+}
