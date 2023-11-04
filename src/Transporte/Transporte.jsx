@@ -1,10 +1,13 @@
 import React from "react";
-import { MapContainer, TileLayer, Popup, Marker, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 
 function TransitoDashboard({ datosLineaSeleccionada }) {
-  // https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6
+  const position = [
+    datosLineaSeleccionada[0].latitude,
+    datosLineaSeleccionada[0].longitude,
+  ];
 
-  const position = [-34.64657, -58.59802];
+  console.log(datosLineaSeleccionada);
 
   return (
     <>
