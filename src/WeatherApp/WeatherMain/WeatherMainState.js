@@ -1,12 +1,12 @@
 import React from "react";
 import weatherDataIcons from "../../data/weatherstateicons.json";
 
-function WeatherMainState({ weathercode, fechaActual }) {
+function WeatherMainState({ weathercode, fechaActual, is_day }) {
   return (
     <div className="state">
       <div className="icon">
         <i
-          className={weatherDataIcons[weathercode].icon}
+          className={weatherDataIcons[weathercode].icon[is_day]}
           alt={weatherDataIcons[weathercode].name}
         ></i>
       </div>

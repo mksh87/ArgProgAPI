@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeatherSearch from "./WeatherApp/WeatherSearch";
-/* import SeleccionTransporte from "./Transporte/SeleccionTransporte";*/
 import SeleccionTransporte4 from "./Transporte/SeleccionTransporte4";
 /* import Practico1 from "./practico1/practico1"; */
-
-//un useEffect que refresque la búsqueda cada 30seg y otro que se ejecute cuando cambias
 
 function App() {
   const [activeTab, setActiveTab] = useState("Clima");

@@ -5,6 +5,7 @@ import WeatherMainTemp from "./WeatherMain/WeatherMainTemp";
 import WeatherMainMaxmin from "./WeatherMain/WeatherMainMaxmin";
 
 function WeatherMain({
+  is_day,
   current,
   currentunits,
   daily,
@@ -21,6 +22,7 @@ function WeatherMain({
       <WeatherMainState
         weathercode={current.weathercode}
         fechaActual={fechaActual}
+        is_day={is_day}
       />
 
       <WeatherMainMaxmin

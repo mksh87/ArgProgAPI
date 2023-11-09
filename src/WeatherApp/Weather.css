@@ -16,6 +16,21 @@
     margin: 5px;
 }
 
+.dropdown {
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 22%;
+    margin-left: 40%;
+    /* Set the same width as the search box */
+    left: 0;
+    /* Align with the left edge of the search box */
+    text-transform: capitalize;
+}
+
 .main {
     /* flex: 25%; */
     display: flex;
@@ -107,6 +122,7 @@
 }
 
 .municipio {
+    font-size: 1.5vh;
     text-transform: capitalize;
 }
 

@@ -41,6 +41,7 @@ function Weather({
           daily={weatherdata.daily}
           dailyunits={weatherdata.daily_units}
           fechaActual={fechaActual}
+          is_day={weatherdata.current_weather.is_day}
         />
       </div>
       <div className="graph-component">
