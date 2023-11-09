@@ -97,6 +97,10 @@ html {
   background-color: lightblue;
 }
 
+.leaflet-container {
+  height: 50vh;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

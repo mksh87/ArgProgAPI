@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import WeatherSearch from "./Components/WeatherSearch";
+import WeatherSearch from "./WeatherApp/WeatherSearch";
 /* import SeleccionTransporte from "./Transporte/SeleccionTransporte";*/
 import SeleccionTransporte4 from "./Transporte/SeleccionTransporte4";
 /* import Practico1 from "./practico1/practico1"; */

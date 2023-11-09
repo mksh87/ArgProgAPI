@@ -1,5 +1,5 @@
 import React from "react";
-import { H2, P1 } from "../../styledcomponents/WeatherStyle";
+import { H2, P1 } from "../styledcomponents/WeatherStyle";
 
 function UVindex({ uv_index, uv_indexunits }) {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { H2, P1 } from "../../styledcomponents/WeatherStyle";
+import { H2, P1 } from "../styledcomponents/WeatherStyle";
 
 function Visibility({ visibility, visibilityunits }) {
   return (

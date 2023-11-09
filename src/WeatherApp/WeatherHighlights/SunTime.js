@@ -1,5 +1,5 @@
 import React from "react";
-import { P1 } from "../../styledcomponents/WeatherStyle";
+import { P1 } from "../styledcomponents/WeatherStyle";
 
 function SunTime({ sunrise, sunset }) {
   return (

@@ -1,16 +1,13 @@
 import React from "react";
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Popup, Marker, useMap } from "react-leaflet";
 
 function TransitoDashboard({ datosLineaSeleccionada }) {
   const position = [
     datosLineaSeleccionada[0].latitude,
     datosLineaSeleccionada[0].longitude,
   ];
-
-  console.log(datosLineaSeleccionada);
-
   return (
-    <>
+    <div className="mapdiv">
       <MapContainer center={position} zoom={11} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -27,7 +24,7 @@ function TransitoDashboard({ datosLineaSeleccionada }) {
           );
         })}
       </MapContainer>
-    </>
+    </div>
   );
 }
 

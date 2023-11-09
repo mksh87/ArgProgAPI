@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import provinciasData from "../provincias.json";
-import localidadesData from "../localidades.json";
+import provinciasData from "../data/provincias.json";
+import localidadesData from "../data/localidades.json";
 import Weather from "./Weather";
 
 function WeatherSearch() {
@@ -102,7 +102,7 @@ function WeatherSearch() {
       .catch((ex) => {
         console.error(ex);
       });
-  }, []);
+  }, [weatherURL]);
 
   return (
     <div>

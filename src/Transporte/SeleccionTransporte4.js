@@ -32,22 +32,27 @@ const SeleccionTransporte3 = () => {
     }
   };
 
+  const fetchData = async (transportURL) => {
+    try {
+      setLoading2(true);
+      const response = await fetch(transportURL);
+      const data = await response.json();
+      setDatosLineaSeleccionada(data);
+      setLoading2(false);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching API data: ", error);
+      setLoading2(true);
+    }
+  };
+
   useEffect(() => {
     if (transportURL) {
-      const fetchData = async () => {
-        try {
-          const response = await fetch(transportURL);
-          const data = await response.json();
-          setDatosLineaSeleccionada(data);
-          setLoading2(false);
-          console.log(data);
-        } catch (error) {
-          console.error("Error fetching API data: ", error);
-          setLoading2(true);
-        }
-      };
+      fetchData(transportURL);
 
-      const interval = setInterval(fetchData, 10000);
+      const interval = setInterval(() => {
+        fetchData(transportURL);
+      }, 31000);
       return () => clearInterval(interval);
     }
   }, [transportURL]);

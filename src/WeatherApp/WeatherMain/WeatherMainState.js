@@ -1,5 +1,5 @@
 import React from "react";
-import weatherDataIcons from "../weatherstateicons.json";
+import weatherDataIcons from "../../data/weatherstateicons.json";
 
 function WeatherMainState({ weathercode, fechaActual }) {
   return (
