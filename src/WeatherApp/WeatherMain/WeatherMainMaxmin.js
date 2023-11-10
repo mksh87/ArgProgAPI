@@ -1,5 +1,4 @@
 import React from "react";
-import { P1 } from "../styledcomponents/WeatherStyle";
 
 function WeatherMainMaxmin({
   max,
@@ -10,16 +9,16 @@ function WeatherMainMaxmin({
 }) {
   return (
     <div className="maxmin">
-      <div className="municipio">
+      <div className="municipio p1">
         {municipioSeleccionado ? municipioSeleccionado.nombre : "Córdoba"},{" "}
         {provinciaSeleccionada}
       </div>
-      <P1>
+      <div className="p1">
         Máxima: {max} {tempunits}
-      </P1>
-      <P1>
+      </div>
+      <div className="p1">
         Mínima: {min} {tempunits}
-      </P1>
+      </div>
     </div>
   );
 }
