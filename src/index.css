@@ -82,13 +82,13 @@ html {
 
 .weather {
   flex-grow: 1;
-  flex-basis: 500px;
+  flex-basis: 750px;
   background-color: bisque;
 }
 
 .transport {
   flex-grow: 1;
-  flex-basis: 500px;
+  flex-basis: 750px;
   padding: 2%;
   height: 92vh;
   text-align: center;

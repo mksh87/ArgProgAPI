@@ -155,4 +155,8 @@ h2 {
     h2 {
         font-size: 1.2vmax;
     }
+
+    .dropdown {
+        margin-left: 16%;
+    }
 }
